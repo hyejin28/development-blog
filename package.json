@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
