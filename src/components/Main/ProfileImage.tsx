@@ -1,15 +1,19 @@
 //소개글 구역에서 사용할 프로필 이미지
-
 import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 
-const PROFILE_IMAGE_LINK = '<https://avatars.githubusercontent.com/u/85987839?v=4>;'
+const PROFILE_IMAGE_LINK = 'https://avatars.githubusercontent.com/u/85987839?v=4'
 
 const ProfileImageWrapper = styled.img`
     width: 120px;
     height: 120px;
     margin-bottom: 30px;
     border-radius: 50%;
+
+    @media (max-width: 768px) {
+        width: 80px;
+        height: 80px;
+    }
 `   
 
 const ProfileImage: FunctionComponent = function() {
