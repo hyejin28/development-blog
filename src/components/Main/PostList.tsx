@@ -2,8 +2,8 @@
 
 import styled from "@emotion/styled";
 import React, { FunctionComponent } from "react";
+import { PostListItemType } from "types/PostItem.types";
 import PostItem from "./PostItem";
-import { PostListItemType } from 'types/PostItem.types'
 
 export type PostType = {
     node: {
@@ -23,17 +23,6 @@ export type PostType = {
 type PostListProps = {
     posts: PostListItemType []
 }
-
-// const POST_ITEM_DATA = {
-//     title: 'Post Item Title',
-//     date: '2022.12.20.',
-//     categories: ['Web', 'Fronted', 'Testing'],
-//     summary:
-//         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat doloremque fugit quis rem temporibus! Maxime molestias, suntrem debitis odit harum impedit. Modi cupiditate harum dignissimos eos in corrupti!',
-//     thumbnail:
-//         'http://www.koreaisacademy.com/renewal2016/img/curriculum/web02.jpg',
-//     link: 'https://www.google.co.kr/'
-// }
 
 const PostListWrapper = styled.div`
     display: grid;

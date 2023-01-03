@@ -8,7 +8,6 @@ import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 
-
 type IndexPageProps = {
   data: {
     allMarkdownRemark: {
@@ -26,7 +25,7 @@ const CATEGORY_LIST = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 `
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
