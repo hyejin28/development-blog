@@ -1,9 +1,10 @@
 //여러 포스트 아이템을 묶는 포스트 리스트
 
-import styled from "@emotion/styled";
-import React, { FunctionComponent } from "react";
-import { PostListItemType } from "types/PostItem.types";
-import PostItem from "./PostItem";
+import styled from "@emotion/styled"
+import useInfiniteScroll, { useInfiniteScrollType } from "hooks/useInfinitieScroll"
+import React, { FunctionComponent } from "react"
+import { PostListItemType } from "types/PostItem.types"
+import PostItem from "./PostItem"
 
 export type PostType = {
     node: {
@@ -21,6 +22,7 @@ export type PostType = {
 }
 
 type PostListProps = {
+    selectedCategory: string
     posts: PostListItemType []
 }
 
@@ -39,22 +41,19 @@ const PostListWrapper = styled.div`
     }
 `
 
-const PostList: FunctionComponent<PostListProps> = function ({ posts }) {
+const PostList: FunctionComponent<PostListProps> = function ({
+    selectedCategory,
+    posts,
+  }) {
+    const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(selectedCategory, posts)
+  
     return (
-    <PostListWrapper>
-        {posts.map(
-            ({
-             node: { id, frontmatter },
-             }: PostType) => (
-                <PostItem
-                    {...frontmatter}
-                    link="https://www.google.co.kr/"
-                    key={id}
-                />
-            ),
-        )}
-    </PostListWrapper>
+      <PostListWrapper ref={containerRef}>
+        {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
+          <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
+        ))}
+      </PostListWrapper>
     )
-}
+  }
 
 export default PostList
